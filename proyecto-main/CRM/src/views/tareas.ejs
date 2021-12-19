@@ -1,0 +1,56 @@
+<%- include ('partials/header'); %>
+
+<section>
+    <div class="cont">
+        <div class="titulo">
+            <h1>TAREAS CRM</h1>
+          </div>        
+        <div id="Container">
+            <div>
+                <table id="tareas" class="blueTable">
+                    <thead>
+                        <tr>
+                            <th style="width: 150px;">Fecha</th>
+                            <th style="width: 150px;">Cliente</th>
+                            <th style="width: 150px;">Observacion</th>
+                            <th style="width: 300px;">Asesor</th>
+                            <th style="width: 300px;">Estado tarea</th>
+                            <th style="width: 350px">Modificar / Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i<tareas.length; i++){ %>
+                            <tr>
+                                <td><%= tareas[i].fecha %></td>
+                                <td><%= tareas[i].cliente %></td>
+                                <td><%= tareas[i].observacion %></td>
+                                <td><%= tareas[i].asesor %></td>
+                                <td><%= tareas[i].estado %></td>
+                                <td>
+                                    <a class="boton" href="/modificarTarea/<%= tareas[i]._id %>">Modificar</a>
+                                    <a class="boton" href="/eliminarTarea/<%= tareas[i]._id %>">Eliminar</a>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                          <td colspan="6">
+                            <div class="links">
+                                <form action="/nuevaTarea">
+                                    <input class="boton" type="submit" value="Nueva tarea" />
+                                </form>                              
+                            </div>
+                          </td>
+                        </tr>
+                      </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<%- include ('partials/footer'); %>
+
+
+
+

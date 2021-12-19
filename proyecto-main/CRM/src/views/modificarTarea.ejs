@@ -1,0 +1,65 @@
+<%- include ('partials/header'); %>
+<section style="text-align:center">
+    <div class="cont">
+        <div class="titulo">
+          <h1>Modificar Tarea</h1>
+        </div>
+        <div class="cajabarr">
+            <div class="barras">
+                <form action="/actualizarTarea/<%= tarea.id %>" method="post">
+                    <div>
+                      <label>Fecha</label>
+                      <input class="barrr" type="date" value="<%= tarea.fecha %>"  name="fecha" required />
+                    </div>
+                  
+                    <div>
+                      <label>Cliente</label>
+                      <select name="cliente" id="cliente">
+                        <% for(var i=0; i < personas.length; i++){ %>
+                           <option value="<%= personas[i].nombre %> <%= personas[i].apellido %>">
+                              <%= personas[i].nombre %>
+                              <%= personas[i].apellido %>
+                           </option>
+                           <% } %>
+                     </select>
+                    </div>
+                  
+                    <div>
+                      <label>Observacion</label>
+                      <textarea class="barrr" name="observacion" required cols="30" rows="2"><%= tarea.observacion %></textarea>
+                    </div>
+                  
+                    <div>
+                      <select name="asesor" id="asesor">
+                        <% for(var i=0; i < usuarios.length; i++){ %>
+                           <option value="<%= usuarios[i].nombre %>">
+                              <%= usuarios[i].nombre %>                
+                           </option>
+                           <% } %>
+                     </select>
+                    </div>
+                  
+                    <div>
+                      <select name="estado" id="estado">
+                           <option value="Pendiente">Pendiente           
+                           </option>
+                           <option value="Realizado">Realizado           
+                          </option>
+                     </select>
+                    </div>
+
+                    <br />
+                    <div>
+                      <button class="boton" type="submit">Guardar</button>
+                      <form action="/tareas">
+                        <input class="boton" type="submit" value="Volver a listado" />
+                      </form>
+                    </div>
+                  </form>
+            </div>           
+        </div>
+        
+    </div>
+</section>
+
+<%- include ('partials/footer'); %>

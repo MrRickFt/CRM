@@ -1,0 +1,38 @@
+<%- include ('partials/header'); %>
+<section>
+  <div class="cont">
+    <div class="titulo">
+      <h1> Crear Cliente</h1>
+    </div>
+    <div  class="cajabarr">
+      <div class="barras">
+        <form action="guardarNuevoCliente" method="post">
+          <input class="barr" type="text" placeholder="Nombre" name="nombre" required />
+          <input class="barr" type="text" placeholder="Apellido" name="apellido" required />
+          <input class="barrr" type="text" placeholder="E-mail" name="email" required />
+          <input class="barrr" type="text" placeholder="Télefono" name="tel" required />
+          <input class="barrr" type="text" placeholder="País" name="pais" required />
+          <input class="barrr" type="text" placeholder="Ciudad" name="ciudad" required />
+          <input class="barrr" type="date" placeholder="fechaInteraccion" name="fechaInteraccion" required/>          
+          <input class="barrr" type="text" placeholder="Dirección" name="direccion" required />
+          <input class="barrr" type="text" placeholder="Instagram" name="instagram" required />
+          <input class="barrr" type="text" placeholder="Facebook" name="facebook" required />
+          <input class="barrr" type="text" placeholder="Linkedin" name="linkedin" required />
+          <input class="barrr" type="text" placeholder="Twitter" name="twitter" required />
+          <select class="barrr" name="estado" id="estado">
+            <option value="Interesado">Interesado</option>
+            <option value="Presupuesto enviado">Presupuesto enviado</option>
+            <option value="Cliente">Cliente</option>
+            <option value="Cliente recurrente">Cliente recurrente</option>
+            <option value="No Cliente">No Cliente</option>
+          </select>
+          <div class="botone">
+            <button class="boton" type="submit">Crear</button>
+            <a class="boton" href="/clientes">Regresar</a>
+          </div>          
+        </form>
+      </div>
+    </div>    
+  </div>
+</section>
+<%- include ('partials/footer'); %>

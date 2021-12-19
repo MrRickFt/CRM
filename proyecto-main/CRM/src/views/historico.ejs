@@ -1,0 +1,29 @@
+<%- include ('partials/header'); %>
+<section>
+  <div class="cont">
+    <div class="titulo">
+      <h1>HISTORICO CRM</h1>
+    </div>
+    <table class="blueTable">
+      <thead>
+        <tr>
+          <th style="width: 150px">Fecha</th>
+          <th style="width: 150px">Asesor</th>
+          <th style="width: 150px">Comentario</th>
+          <th style="width: 150px">Descripción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(var i=0; i < historico.length; i++){ %>
+        <tr>
+          <td><%= historico[i].fecha.toLocaleString('es-ES', { timeZone: 'UTC' }) %></td>
+          <td><%= historico[i].usuario %></td>
+          <td><%= historico[i].comentario %></td>
+          <td><%= historico[i].descripcion %></td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</section>
+<%- include ('partials/footer'); %>

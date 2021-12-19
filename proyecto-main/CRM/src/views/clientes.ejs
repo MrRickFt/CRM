@@ -1,0 +1,62 @@
+<%- include ('partials/header'); %>
+
+<div>
+  <section>
+    <div class="cont">
+      <div class="titulo">
+        <h1>CLIENTES CRM</h1>
+      </div>
+      <div class="buscar1">
+        <div class="buscar">
+          <input type="text" placeholder="Buscar" name="buscar" />
+          <div class="btn">
+            <i class="fas fa-search icon"></i>
+          </div>
+        </div>
+      </div>
+      <div>
+        <table class="blueTable">
+          <thead>
+            <tr>
+              <th style="width: 150px">Nombre</th>
+              <th style="width: 300px">Apellido</th>
+              <th style="width: 150px">Contacto</th>
+              <th style="width: 150px">Estado</th>
+              <th style="width: 300px">Detalle / Eliminar</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td colspan="5">
+                <div class="links">
+                  <!-- <a href="#">&laquo;</a> -->
+                  <a class="active" href="nuevoCliente">Crear Cliente</a>
+                  <!-- <a href="#">&raquo;</a> -->
+                </div>
+              </td>
+            </tr>
+          </tfoot>
+          <tbody>
+            <% for(var i=0; i < personas.length; i++){ %>
+
+            <tr>
+              <td><%= personas[i].nombre %></td>
+              <td><%= personas[i].apellido %></td>
+              <td><%= personas[i].tel %></td>
+              <td><%= personas[i].estado %></td>
+              <td>
+                <div class="botone">
+                  <a class="boton" href="/modificaCliente/<%= personas[i]._id %>">Detalle</a>
+                  <a class="boton" href="/eliminar/<%= personas[i]._id %>/<%= personas[i].Nombre %>">Eliminar</a>
+                </div>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>
+
+<%- include ('partials/footer'); %>

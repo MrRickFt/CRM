@@ -1,0 +1,75 @@
+<%- include ('partials/header'); %>
+
+   <head>
+      <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+   </head>
+   <section>
+      <div class="cont">
+         <div class="titulo">
+            <h1> Módulo de modificación de Clientes CRM</h1>
+         </div>
+         <div class="cajabarr">
+            <div class="barras">
+               <form action="/guardarModCliente/<%= personaEncontrada.id %>" method="post">
+                  <input class="barr" id="nombre" type="text" disabled placeholder="Nombre" name="nombre" required
+                     value="<%= personaEncontrada.nombre %>" />
+                  <input class="barr" id="apellido" type="text" disabled placeholder="Apellido" name="apellido" required
+                     value="<%= personaEncontrada.apellido %>" />
+                  <input class="barroculto" type="text" placeholder="E-mail" name="email" required
+                     value="<%= personaEncontrada.email %>" />
+                  <input class="barroculto" type="text" placeholder="Télefono" name="tel" required
+                     value="<%= personaEncontrada.tel %>" />
+                  <input class="barroculto" type="text" placeholder="País" name="pais" required
+                     value="<%= personaEncontrada.pais %>" />
+                  <input class="barroculto" type="text" placeholder="Ciudad" name="ciudad" required
+                     value="<%= personaEncontrada.ciudad %>" />
+                  <input class="barroculto" type="text" placeholder="Dirección" name="direccion" required
+                     value="<%= personaEncontrada.direccion %>" />
+                  <input class="barroculto" type="text" placeholder="Instagram" name="instagram" required
+                     value="<%= personaEncontrada.instagram %>" />
+                  <input class="barroculto" type="text" placeholder="Facebook" name="facebook" required
+                     value="<%= personaEncontrada.facebook %>" />
+                  <input class="barroculto" type="text" placeholder="Linkedin" name="linkedin" required
+                     value="<%= personaEncontrada.linkedin %>" />
+                  <input class="barroculto" type="text" placeholder="Twitter" name="twitter" required
+                     value="<%= personaEncontrada.twitter %>" />
+                  <select class="barroculto" name="asesor" id="asesor">
+                     <% for(var i=0; i < usuarios.length; i++){ %>
+                        <option value="<%= usuarios[i].nombre %>">
+                           <%= usuarios[i].nombre %>
+                        </option>
+                        <% } %>
+                  </select>
+                  <select class="barroculto" name="estado" id="estado">
+                     <option value="Interesado" <% if (personaEncontrada.estado=='Interesado' ) { %> selected <% } %>
+                           >Interesado
+                     </option>
+                     <option value="Presupuesto enviado" <% if (personaEncontrada.estado=='Presupuesto enviado' ) { %>selected
+                        <% } %> >Presupuesto enviado</option>
+                     <option value="Cliente" <% if (personaEncontrada.estado=='Cliente' ) { %> selected <% } %> >Cliente
+                     </option>
+                     <option value="Cliente recurrente" <% if (personaEncontrada.estado=='Cliente recurrente' ) { %>
+                        selected <% } %> > Cliente recurrente</option>
+                     <option value="No Cliente" <% if (personaEncontrada.estado=='No Cliente' ) { %> selected <% } %>
+                           >No Cliente
+                     </option>
+                  </select>
+                  <textarea class="barroculto" id="comentario" rows="4" name="comentario" required></textarea>   
+                  <button class="ocultoboton" id="guardar" type="submit">Guardar</button>
+                  <input type="hidden" id="llave" value="<%= personaEncontrada.id %>">
+               </form>
+            </div>
+            <div class="botone">
+               <button class="boton" id="ModTodo">Modificar Todo</button>
+               <button class="boton" id="ModEst">Modificar Estado</button>
+               <button class="boton" id="histCliente">Historico Cliente</button>
+               <a class="boton" href="/clientes">Volver Atrás</a>
+            </div>
+         </div>
+
+
+         <script src="/habilitarFormulario.js"></script>
+         <link REL=StyleSheet HREF="./estilos/stilos.css" TYPE="text/css" MEDIA=screen>
+      </div>
+   </section>
+   <%- include ('partials/footer'); %>

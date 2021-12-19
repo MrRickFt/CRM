@@ -1,0 +1,88 @@
+<%- include ('partials/header'); %>
+        <!-- EL INDEX EMPIEZA DESDE AQUI IVAN N-->
+        <!-- Estadisticas de clientes general-->
+<div class="cont1">
+    <div class="titulo">
+        <h1> Bienvenido al CRUD del Grupo 3</h1>
+    </div>
+    <div  class="cajabarr1">
+        <p class="text-center">En esta pagina podra registrar y tener un seguimiento sus clientes potenciales, clientes frecuentes, interesados, propuestas enviadas y no clientes </p>
+        <div class="container1">
+            <div class="cajabarr2">
+                <div class="card" style="width: 18rem;">
+                    <canvas id="myChart" width="400" height="400"></canvas>
+                    <div class="card-body">
+                        <h5 class="card-title">Dato torta clientes </h5>
+                        <p class="card-text">Grafica de torta de los clientes, pulsa sobre los encabezados para filtrar el tipo de clientes</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cajabarr2">
+                <!-- Estadistica de barras -->
+                <div class="card" style="width: 18rem;">
+                    <canvas id="myChart2" width="400" height="400"></canvas>
+                    <div class="card-body">
+                        <h5 class="card-title">Barras estadisticas</h5>
+                        <p class="card-text">Contenido en Barras </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <!-- AQUI TERMINA IVAN N-->
+   
+<!--ESTO ES IMPORTANTE DEBE IR DESPUES DE BODY IVAN N -->
+<script>
+var ctx = document.getElementById("myChart").getContext("2d");
+var myChart = new Chart(ctx, {
+    type: "polarArea",
+    data: {
+        labels: ['Interesado', 'Presupuesta enviado', 'Cliente', "Cliente recurrente", "No Cliente"], // de la base de datos 
+        datasets: [{
+            label: 'Num datos',
+            data: [<%= numInter %> , <%= numPro %>, <%= numClien %>, <%= numClienR %>, <%= numNoClien %>], // de la base de datos con variable 
+            backgroundColor: [
+                'rgb(66, 134, 244,0.5)',
+                'rgb(74, 135, 72,0.5)',
+                'rgb(229, 89, 50,0.5)',
+                'rgb(204, 89, 50,0.5)',
+                'rgb(80, 89, 50,0.5)'
+            ]
+        }]
+    },
+    options: {
+
+    }
+});
+
+var bar = document.getElementById("myChart2").getContext("2d");
+var myChart2 = new Chart(bar, {
+    type: 'bar',
+
+    data: {
+        labels: ['Interesado', 'Presupuesto enviado', 'Cliente', "Cliente recurrente", "No Cliente"],
+        datasets: [{
+            label: "Clientes",
+            data: [<%= numInter %> , <%= numPro %>, <%= numClien %>, <%= numClienR %>, <%= numNoClien %>], // de la base de datos con variable 
+            backgroundColor: 'rgb(66, 134, 244,0.5)',
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Chart.js Bar Chart'
+            }
+        }
+    },
+});
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+<%- include ('partials/footer'); %>

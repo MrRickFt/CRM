@@ -1,0 +1,24 @@
+<nav class="navbar navbar-light bg-light">
+    <form class="form-inline" action="buscar" method="get" >
+      <input class="form-control mr-sm-2" type="search" placeholder="Nombre" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+    </form>
+  </nav
+
+  <form action="guardarNuevoCliente" method="post">
+    <input type="text" name="nombre" />
+    <input type="text" name="apellido" />
+    <input type="text" name="email" />
+    <input type="text" name="tel" />
+    <input type="text" name="pais" />
+    <input type="text" name="ciudad" />
+    <input type="text" name="direccion" />
+    <input type="text" name="instagram" />
+    <input type="text" name="facebook" />
+    <input type="text" name="linkedin" />
+    <input type="text" name="twitter" />
+    <input type="text" name="estado" />
+   
+    <button type="submit">Limpiar</button>
+</form>
+<%- include ('partials/footer'); %>
